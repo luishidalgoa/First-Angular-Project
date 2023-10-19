@@ -16,7 +16,14 @@ export class ValidatorComponent {
 
 
   named(){
-    this.name;
+    let result=document.querySelector('input')?.value
+    if(typeof result === 'string'){
+      this.name=result;
+      this.comprobar();
+    }else{
+      this.name='';
+    }
+    
   }
 
   menos(): void{
@@ -31,7 +38,7 @@ export class ValidatorComponent {
   }
 
   comprobar(){
-    if(this.counter>=18){
+    if(this.counter>=18 && this.name.length>1){
       this.esMenor=false;
     }else{
       this.esMenor=true;
