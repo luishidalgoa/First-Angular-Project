@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "helloWorld": {
+    "Primera-prueba": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/hello-world",
+            "outputPath": "dist/Primera-prueba",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -70,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "helloWorld:build:production"
+              "browserTarget": "Primera-prueba:build:production"
             },
             "development": {
-              "browserTarget": "helloWorld:build:development"
+              "browserTarget": "Primera-prueba:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "helloWorld:build"
+            "browserTarget": "Primera-prueba:build"
           }
         },
         "test": {
@@ -104,5 +104,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "3b8bacad-514c-4b89-9e62-f6597bfc36d6"
   }
 }
