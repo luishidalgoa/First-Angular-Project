@@ -1,11 +1,53 @@
+<!--
 <div class="contenedor normal">
     <input holder="Nombre" (input)="named()"/>
     <p>
-        <button (click)="menos()">-</button>
-        <span> {{counter}} </span>
-        <button (click)="mas()">+</button>
+        <button (click)="decrementarEdad()">-</button>
+        <span> {{edad}} </span>
+        <button (click)="incrementaEdad()">+</button>
     </p>
     <div>Validando edad...</div>
     <button>Resetear</button>
     <button [disabled]="esMenor">Insertar</button>
+</div>-->
+
+<!--V2-->
+<div class="contenedor normal">
+    <!--[(ngModel)]="variable"   ||    poneMayuscula($event)   enviaremos un evento al metodo poneMayuscula-->
+    <p>
+        <input holder="Nombre" type="text" [(ngModel)]="name" (keydown.shift.space)="poneMayuscula($event)">
+        <button (click)="poneMayuscula()">⬆️</button>
+    </p>
+    <p>
+        <button (click)="decrementarEdad()">-</button>
+        <span> {{edad}} años</span>
+        <button (click)="incrementaEdad()">+</button>
+    </p>
+    <!--<div [style.color]="edad<18?'red':'green'">Validando edad...</div>-->
+    <!--Usamos ternaria para programar el comportamiento de un estilo-->
+
+    <div style="color: red;" [ngStyle]="estiloLetras">Validando edad...</div>
+    <div *ngIf="esMayorDeEdad" else miBloqueElse>Es mayor de edad</div>
+    <!--Si es true entonces existe el nodo . Si no no-->
+
+    <ng-template #miBloqueElse>
+        <div>Es menor de edad</div>
+    </ng-template>
+    <button (click)="resetea()">Resetear</button>
+    <button [disabled]="edad<18 || !name.trim()" (click)="inserta()">Insertar</button>
 </div>
+<!--[23-10-2023]-->
+<ng-container *ngIf="this.driverS.data.length==0; else elseBlock">No hay personas</ng-container>
+
+<ng-template #elseBlock>
+    <table border="1">
+
+        <tr *ngFor="let persona of driverS.data; index as i">
+            <!--Curiosamente ngFor te permite registrar opcionalmente el index-->
+            <td>Persona #{{ i + 1 }}</td>
+            <td>{{persona.nombre}}</td>
+            <td>{{persona.edad}}</td>
+        </tr>
+    
+    </table>
+</ng-template>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LogService } from 'src/app/services/log.service';
 
 @Component({
   selector: 'app-c2',
@@ -14,5 +15,9 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class C2Component {
+  private logS = inject(LogService); //2º forma de injectar. ES MAS ELEGANTE
 
+  constructor(){
+    this.logS.warn("Creando componente 2");
+  }
 }
