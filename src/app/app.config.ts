@@ -1,9 +1,13 @@
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 
 import { routes } from './app.routes';
 import { LogService } from './services/log.service';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), LogService ]
+  //antes
+  //providers: [provideRouter(routes), LogService ]
+
+  //[24-10-2023]
+  providers: [provideRouter(routes,withComponentInputBinding()), LogService ]
 };

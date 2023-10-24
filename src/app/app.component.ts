@@ -4,11 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { C1Component } from './components/c1/c1.component';
 import { C2Component } from './components/c2/c2.component';
 import { ValidatorComponent } from './components/validator/validator.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @Component({
   standalone: true,
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, C1Component, C2Component,ValidatorComponent],
+  imports: [CommonModule, RouterOutlet, NavbarComponent],  //C1Component, C2Component,ValidatorComponent
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

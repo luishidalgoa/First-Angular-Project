@@ -1,0 +1,20 @@
+<nav>
+    <ul>
+        <li>
+            <!-- RouterLinkActive hace referencia al nombre de la clase de estilos que se vera cuando en un navBar nos vayamos a una ruta.
+            Irnos a la linea -27 de app.routes.ts -->
+            <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        </li>
+        <li>
+            <a routerLink="/driver" routerLinkActive="active">Driver</a>
+        </li>
+        <li>
+            <a routerLink="/about/author" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">About
+                Autor</a>
+        </li>
+        <li>
+            <a routerLink="/about/angular" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">About
+                Angular</a>
+        </li>
+    </ul>
+</nav>
