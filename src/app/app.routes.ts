@@ -12,7 +12,8 @@ export const routes: Routes = [
 
         //VAMOS A HABILITAR QUE LA CARGA DEL COMPONENTE driver sea LAZY. porque si no por defecto se cargara a la fuerza
         loadComponent: () => {
-            return import('./pages/driver/driver.component').then(m => m.DriverComponent)
+            //import creara una promesa la cual devolvera un modulo (investigar que es modulo) y devolveremos su componente ya cargado
+            return import('./pages/driver/driver.component').then(module => module.DriverComponent)
         }
     },
     
@@ -21,7 +22,9 @@ export const routes: Routes = [
             return import('./pages/about/about.component').then(m => m.AboutComponent)
         },
         children: [
-            { title: 'Autor', path: 'author', component: AuthorComponent },
+            //de forma Lazy
+            { title: 'Autor', path: 'author', loadComponent: () => import('./pages/about/about.component').then(mod => mod.AboutComponent) },
+            //sin lazy
             { title: 'Angular', path: 'angular', component: AngularComponent },
             { path: '', redirectTo: '/about/angular', pathMatch: 'full' }
         ]
