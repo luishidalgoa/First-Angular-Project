@@ -1,11 +1,14 @@
 import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Driver } from 'src/app/model/driver';
+import { DriverService } from 'src/app/services/driver.service';
+import { DriverViewComponent } from 'src/app/components/driver-view/driver-view.component';
 
 @Component({
   selector: 'app-driver',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,DriverViewComponent],
   templateUrl: './driver.component.html',
   styleUrls: ['./driver.component.css']
 })
@@ -22,7 +25,8 @@ export class DriverComponent {
   irInicio(){
     //navegar al inicio
     //this.router.navigateByUrl("/");
-    this.router.navigate(['driver','Luis']);//indicaria en el navegador la siguiente ruta: /driver/Luis
+    //this.router.navigate(['driver','Luis']);//indicaria en el navegador la siguiente ruta: /driver/Luis
+    this.router.navigate(['home']);
 /*
     this.ejecuta((name:string)=>{
       console.log('HOLA MUNDO' + name)
@@ -37,4 +41,20 @@ export class DriverComponent {
     fn();
   }
 }*/
+
+
+  //[30-10-2023]
+  private driverS = inject(DriverService);
+  driver!: Driver | null;
+  ngOnInit(){
+    if(this.name){
+      this.driver = this.driverS.getByName(this.name);
+    }
+  }
+
+
+
+  fromChild(eventInfo: string){
+    alert(eventInfo);
+  }
 }

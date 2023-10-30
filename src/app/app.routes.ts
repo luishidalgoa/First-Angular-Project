@@ -1,9 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { DriverComponent } from './pages/driver/driver.component';
-import { AboutComponent } from './pages/about/about.component';
 import { E404Component } from './pages/e404/e404.component';
-import { AuthorComponent } from './pages/about/author/author.component';
 import { AngularComponent } from './pages/about/angular/angular.component';
 
 export const routes: Routes = [

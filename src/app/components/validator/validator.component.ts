@@ -2,13 +2,14 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LogService } from 'src/app/services/log.service';
-import { Driver } from 'src/app/model/driver';
 import { DriverService } from 'src/app/services/driver.service';
+import { Router, RouterModule } from '@angular/router';
+import { Driver } from 'src/app/model/driver';
 
 @Component({
   selector: 'app-validator',
   standalone: true,
-  imports: [CommonModule, ValidatorComponent, FormsModule],
+  imports: [CommonModule, RouterModule,ValidatorComponent, FormsModule],
   templateUrl: './validator.component.html',
   styleUrls: ['./validator.component.css']
 })
@@ -90,6 +91,7 @@ export class ValidatorComponent {
   //[23-10/2023] 
   esMayorDeEdad: boolean = false;
   private logS = inject(LogService); //importamos el servicio
+  private router = inject(Router); //importamos el servicio
 
   //personas: Persona[] = [];
   //personas: {nombre:string,edad:number} [] = []; //es una forma rapida de declarar un objeto
@@ -119,4 +121,11 @@ export class ValidatorComponent {
     this.resetea();
   }
 
+
+
+
+  //[30-10/2023]
+  goToDriver(name : string){
+    this.router.navigateByUrl('/driver/'+name);
+  }
 }

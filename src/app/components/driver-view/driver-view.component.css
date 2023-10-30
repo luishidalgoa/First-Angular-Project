@@ -1,0 +1,7 @@
+.driverCard{
+    border: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: 1px;
+    background-color: azure;
+    padding: 1.2rem;
+}

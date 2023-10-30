@@ -42,11 +42,12 @@
 <ng-template #elseBlock>
     <table border="1">
 
-        <tr *ngFor="let persona of driverS.data; index as i">
+        <tr *ngFor="let persona of driverS.data; index as i" (click)="goToDriver(persona.nombre)">
             <!--Curiosamente ngFor te permite registrar opcionalmente el index-->
             <td>Persona #{{ i + 1 }}</td>
-            <td>{{persona.nombre}}</td>
-            <td>{{persona.edad}}</td>
+            <td>{{persona.nombre}}</td> 
+            <!--<td>{{persona.edad}}</td>-->
+
         </tr>
     
     </table>

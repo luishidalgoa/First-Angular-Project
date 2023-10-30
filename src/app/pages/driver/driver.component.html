@@ -1,2 +1,3 @@
 <p>driver works! {{name}}</p>
+<app-driver-view [driver]="driver"  (evento)="fromChild($event)"/> <!--Para saber sobre evento irnos a driver.view.ts metodo comunicate()-->
 <button (click)="irInicio()">Inicio</button>
